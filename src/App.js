@@ -1,22 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import './landing.css';
+import background from './images/electro-blue-heart.jpeg'
+import Button from "react-bootstrap/Button"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+      <img src={background} className="img-bg" alt="logo" />
+        <p className="text">          
+          Heart Disease Predictor
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        
+        <Button className="button" as="input" type="button" value="Input"> Start </Button>
       </header>
     </div>
   );
