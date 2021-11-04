@@ -11,7 +11,7 @@ function App() {
           Heart Disease Predictor
         </p>
         
-        <Button className="button" as="input" type="button" value="Input"> Start </Button>
+        <Button className="button" type="button" value="Input"> Start </Button>
       </header>
     </div>
   );
