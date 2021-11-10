@@ -1,29 +1,18 @@
-
 import './landing.css';
-import bgimg from './bg-img.jpeg'
-import ReactDOM from "react-dom";
-
-import { Link } from 'react-router-dom'
-import Form from "./Form"
+import background from './images/electro-blue-heart.jpeg'
+import Button from "react-bootstrap/Button"
 
 function App() {
   return (
-    <div className="container">
-      {/* <p className="text">
-          Heart Disease Detector
-        </p> */}
-        <img className="img-bg" src = {bgimg} />
-        <div>
-            <p className="text">
-            Heart Disease Detector
-            <Link to="/Form"> 
-              <button> Report </button>
-            </Link>
-
-            </p>
-        </div>
+    <div className="App">
+      <header className="App-header">
+      <img src={background} className="img-bg" alt="logo" />
+        <p className="text">          
+          Heart Disease Predictor
+        </p>
         
-        
+        <Button className="button" type="button" value="Input"> Start </Button>
+      </header>
     </div>
   );
 }
