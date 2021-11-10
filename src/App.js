@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+
+import './landing.css';
+import bgimg from './bg-img.jpeg'
+import ReactDOM from "react-dom";
+
+import { Link } from 'react-router-dom'
+import Form from "./Form"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      {/* <p className="text">
+          Heart Disease Detector
+        </p> */}
+        <img className="img-bg" src = {bgimg} />
+        <div>
+            <p className="text">
+            Heart Disease Detector
+            <Link to="/Form"> 
+              <button> Report </button>
+            </Link>
+
+            </p>
+        </div>
+        
+        
     </div>
   );
 }
