@@ -1,4 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Row from 'react-bootstrap/Row'
+import Button from 'react-bootstrap/Button'
+import form from "react-bootstrap/Form"
+
+import './Form.css';
+import { Col, FormGroup } from "react-bootstrap";
+
 
 function Form() {
 
@@ -18,8 +25,9 @@ function Form() {
 
 
     return (
-        <div>
-            <form>
+        
+        <div className="Form">
+            {/* <form>
                 <label>Age:</label>
                 <input
                     type="text"
@@ -160,7 +168,133 @@ function Form() {
                             // onClick={this.handleChange}
                     >Add Review</button>
                 </div>
-            </form>
+            </form> */}
+
+<form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      Age
+    </form.Label>
+    <Col sm="10">
+      <form.Control />
+    </Col>
+  </form.Group>
+
+  <form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+    <form.Label column sm="2">
+      Sex
+    </form.Label>
+    <Col sm="10">
+      <form.Control type="text" />
+    </Col>
+  </form.Group>
+
+
+<form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      cp
+    </form.Label>
+    <Col sm="10">
+      <form.Control type="text" />
+    </Col>
+  </form.Group>
+
+
+<form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      trestbps
+    </form.Label>
+    <Col sm="10">
+      <form.Control type="text" />
+    </Col>
+  </form.Group>
+
+
+<form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      chol
+    </form.Label>
+    <Col sm="10">
+      <form.Control   />
+    </Col>
+  </form.Group>
+
+
+<form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      fbs
+    </form.Label>
+    <Col sm="10">
+      <form.Control  />
+    </Col>
+  </form.Group>
+
+
+<form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      restecg
+    </form.Label>
+    <Col sm="10">
+      <form.Control  />
+    </Col>
+  </form.Group>
+
+
+<form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      thalach
+    </form.Label>
+    <Col sm="10">
+      <form.Control  />
+    </Col>
+  </form.Group>
+
+
+<form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      exang
+    </form.Label>
+    <Col sm="10">
+      <form.Control  />
+    </Col>
+  </form.Group>
+
+  <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      old peak
+    </form.Label>
+    <Col sm="10">
+      <form.Control   />
+    </Col>
+  </form.Group>
+
+  <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      slope
+    </form.Label>
+    <Col sm="10">
+      <form.Control  />
+    </Col>
+  </form.Group>
+
+  <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      ca
+    </form.Label>
+    <Col sm="10">
+      <form.Control  />
+    </Col>
+  </form.Group>
+
+  <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+    <form.Label column sm="2">
+      thal
+    </form.Label>
+    <Col sm="10">
+      <form.Control />
+    </Col>
+  </form.Group>
+
+  <Button className="button" variant="primary"> Submit </Button>
         </div>
     );
 }

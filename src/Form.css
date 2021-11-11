@@ -1,0 +1,11 @@
+.Form {
+    text-align: center;
+    margin-top: 5%;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.container {
+    flex: 1;
+    background-color: '#fff';
+  }
