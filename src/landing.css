@@ -24,3 +24,6 @@
 .button {
     position: relative;
 }
+.btn-wrap {
+    text-align: center;
+}

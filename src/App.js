@@ -1,6 +1,7 @@
 import './landing.css';
 import background from './images/electro-blue-heart.jpeg'
 import Button from "react-bootstrap/Button"
+import {Link} from "react-router-dom"
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
         <p className="text">          
           Heart Disease Predictor
         </p>
-        
-        <Button className="button" type="button" value="Input"> Start </Button>
+        <div className="btn-wrap">
+        <Button className="button" variant="primary"> Start </Button>
+        </div>
       </header>
     </div>
   );
