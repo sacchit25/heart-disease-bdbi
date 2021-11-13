@@ -1,4 +1,9 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button'
+import {Form,FormGroup,FormLabel,FormControl,FormText} from 'react-bootstrap'
+import { Row } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container'
+
 //Add relevant imports
 
 export default class LoginScreen extends React.Component{
@@ -6,9 +11,9 @@ export default class LoginScreen extends React.Component{
     constructor(props)
     {
         super(props);
-        state = {
-            username = "",
-            password = ""
+        this.state = {
+            username:"",
+            password:""
         }
     }
 
@@ -16,7 +21,7 @@ export default class LoginScreen extends React.Component{
     render(){
         return (
             <div id = "loginForm">
-                <TextInput 
+                {/* <TextInput 
                     id = "usernameInput" 
                     onChangeText = {this.onUsernameChange}
                     style = {style.form}
@@ -26,19 +31,39 @@ export default class LoginScreen extends React.Component{
                     onChangeText = {this.onPasswordChange}
                     style = {style.form}
                 />
-                <Button id = "submitForm" style = {style.button}>Submit</Button>
+                <Button id = "submitForm" style = {style.button}>Submit</Button> */}
+                <Container fluid = "md">
+                    <Row>
+                        <Form style = {style.form}>
+                            <FormGroup style = {style.formGroup}>
+                                <FormLabel>Email</FormLabel>
+                                <FormControl type = "email" placeholder ="Email"></FormControl>
+                                {/* <FormText>Don't worry, you won't get spam.</FormText> */}
+                            </FormGroup>
+                            <FormGroup style = {style.formGroup}>
+                                <FormLabel>Password</FormLabel>
+                                <FormControl type = "password" placeholder ="Password"></FormControl>
+                                <FormText>Don't share your password with others.</FormText>
+                            </FormGroup>
+                            <Button id = "submitForm" style = {style.button}>Submit</Button> 
+                            <FormGroup>
+                                <a href = "" style = {style.formGroup}>Forgot password?</a>
+                            </FormGroup>
+                        </Form>
+                    </Row>
+                </Container>
             </div>
         );
     }
 
     //update username var on textfield update
     onUsernameChange(newText){
-        this.state = {username = newText, password = this.state.password};
+        this.state = {username:newText, password:this.state.password};
     }
 
     //update password var on textfield update
     onPasswordChange(newText){
-        this.state = {username = this.state.username, password = newText};
+        this.state = {username:this.state.username, password:newText};
     }
 
     //send state.email & state.password to firebase Auth
@@ -52,10 +77,15 @@ export default class LoginScreen extends React.Component{
 const style = {
     
     button:{
-
+        
     },
     form:{
-
+        paddingBottom:"1%",
+        width:"50%",
+        margin: "auto"
+    },
+    formGroup:{
+        paddingBottom:"1%"
     }
 
 }

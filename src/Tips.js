@@ -1,4 +1,10 @@
 import React from 'react';
+import Accordian from 'react-bootstrap/Accordion';
+import AccordionBody from 'react-bootstrap/esm/AccordionBody';
+import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
+import AccordionItem from 'react-bootstrap/esm/AccordionItem';
+import { Row } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container'
 //Add relevant imports
 
 export default class Tips extends React.Component{
@@ -14,31 +20,74 @@ export default class Tips extends React.Component{
 
     //render form
     render(){
-        return (
-            <div id = "tips">
-                <div id = "highRiskTips"style = {style.tipsContainer}>
-                    <h1 id = "rHeader" style = {style.rHeader}>Tips to reduce risk of heart disease (prevantitive measures):</h1>
-                    <p1 id = "rParagraph" style ={style.rParagraph}>{this.state.tempMsgA}</p1>{/* Paragraph about what steps to take if you're determined to be at high risk of heart disease*/}
-                    <u1 style = {style.list}>
-                        <li>Item1</li>
-                        <li>Item2</li>
-                        <li>Item3</li>
-                        <li>Item4</li>
-                    </u1>
-                    <div id = "tldr" style = {style.tldr}>{this.state.tempMsgB}</div>
-                </div>
-                <div  id = "lowRiskTips" style = {style.tipsContainer}>
-                    <h1 id = "rHeader" style = {style.rHeader}>Tips to maintain good health for low risk patients:</h1>
-                    <p1 id = "rParagraph" style ={style.rParagraph}>{this.state.tempMsgA}</p1>{/* Paragraph about what steps to take if you're determined to be at low risk of heart disease*/}
-                    <u1 style = {style.list}>
-                        <li>Item1</li>
-                        <li>Item2</li>
-                        <li>Item3</li>
-                        <li>Item4</li>
-                    </u1>
-                    <div id = "tldr" style = {style.tldr}>{this.state.tempMsgB}</div>
-                </div>
-            </div>
+        return ( 
+            <Container fluid="md">
+                <Row style = {style.rowStyle}>
+                    <div id = "highRiskTips"style = {style.tipsContainer}>
+                        <h1 id = "rHeader" style = {style.rHeader}>Tips to reduce risk of heart disease (prevantitive measures):</h1>
+                        <p1 id = "rParagraph" style ={style.rParagraph}>{this.state.tempMsgA}</p1>{/* Paragraph about what steps to take if you're determined to be at high risk of heart disease*/}
+                        <u1 style = {style.list}>
+                            <li>Item1</li>
+                            <li>Item2</li>
+                            <li>Item3</li>
+                            <li>Item4</li>
+                        </u1>
+                        <div id = "tldr" style = {style.tldr}>{this.state.tempMsgB}</div>
+                    </div>
+                </Row>
+                <Row style = {style.rowStyle}>
+                    <div  id = "lowRiskTips" style = {style.tipsContainer}>
+                        <h1 id = "rHeader" style = {style.rHeader}>Tips to maintain good health for low risk patients:</h1>
+                        <p1 id = "rParagraph" style ={style.rParagraph}>{this.state.tempMsgA}</p1>{/* Paragraph about what steps to take if you're determined to be at low risk of heart disease*/}
+                        <u1 style = {style.list}>
+                            <li>Item1</li>
+                            <li>Item2</li>
+                            <li>Item3</li>
+                            <li>Item4</li>
+                        </u1>
+                        <div id = "tldr" style = {style.tldr}>{this.state.tempMsgB}</div>
+                    </div>
+                </Row>
+                <Row style = {style.rowStyle}>
+                    <div id ="faq">
+                        <h1 id = "rHeader" style = {style.rHeader}>Frequently Asked Questions</h1>
+                        <Accordian style = {style.faq} defaultActionKey="0">
+                            <AccordionItem eventKey="0">
+                                <AccordionHeader>Question 1</AccordionHeader>
+                                <AccordionBody>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia facilisis libero, vitae accumsan metus condimentum nec. 
+                                </AccordionBody>
+                            </AccordionItem>
+                            <AccordionItem eventKey="1">
+                                <AccordionHeader>Question 2</AccordionHeader>
+                                <AccordionBody>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia facilisis libero, vitae accumsan metus condimentum nec. 
+                                </AccordionBody>
+                            </AccordionItem>
+                            <AccordionItem eventKey="2">
+                                <AccordionHeader>Question 3</AccordionHeader>
+                                <AccordionBody>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia facilisis libero, vitae accumsan metus condimentum nec. 
+                                </AccordionBody>
+                            </AccordionItem>
+                            <AccordionItem eventKey="3">
+                                <AccordionHeader>Question 4</AccordionHeader>
+                                <AccordionBody>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia facilisis libero, vitae accumsan metus condimentum nec. 
+                                </AccordionBody>
+                            </AccordionItem>
+                            <AccordionItem eventKey="4">
+                                <AccordionHeader>Question 5</AccordionHeader>
+                                <AccordionBody>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lacinia facilisis libero, vitae accumsan metus condimentum nec. 
+                                </AccordionBody>
+                            </AccordionItem>
+                        </Accordian>
+                    </div>                   
+                </Row>
+            </Container>
+
+
         );
     }
 
@@ -62,7 +111,7 @@ const style = {
         padding: "0px"
     },
     tldr:{
-        paddingTop:"20px",
+        paddingTop:"0px",
         width: "100%",
         fontSize: "150%",
         textAlign: "center",  
@@ -71,12 +120,22 @@ const style = {
     tipsContainer:{
         paddingLeft:"5%",
         paddingRight:"5%"
-    },
+    }, 
     list:{
         width: "100%",
         height: "10vh",
         fontSize: "100%",
         textAlign: "center",  
+        padding: "0px"
+    },
+    faq:{
+        margin: "auto",
+        width: "50%",
+        height: "10vh",
+        fontSize: "100%",
         padding: "10px"
+    },
+    rowStyle:{
+        paddingBottom:"5%"
     }
 }
