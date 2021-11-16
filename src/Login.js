@@ -34,6 +34,9 @@ export default class LoginScreen extends React.Component{
                 <Button id = "submitForm" style = {style.button}>Submit</Button> */}
                 <Container fluid = "md">
                     <Row>
+                        <h1 style = {style.header}>Login</h1>
+                    </Row>
+                    <Row>
                         <Form style = {style.form}>
                             <FormGroup style = {style.formGroup}>
                                 <FormLabel>Email</FormLabel>
@@ -75,7 +78,15 @@ export default class LoginScreen extends React.Component{
 
 //CSS styling
 const style = {
-    
+    header:{
+        width: "50%",
+        height: "3vh",
+        fontSize: "200%",
+        textAlign: "",
+        paddingBottom:"4%",
+        paddingTop:"4%",
+        margin: "auto"
+    },
     button:{
         
     },
