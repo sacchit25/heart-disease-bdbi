@@ -1,6 +1,6 @@
 .Form {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 30px;
     width: 50%;
     margin-left: 25%;
 }
@@ -9,3 +9,7 @@
     flex: 1;
     background-color: '#fff';
   }
+  
+.background {
+    width: auto;
+}

@@ -2,6 +2,11 @@ import './landing.css';
 import background from './images/electro-blue-heart.jpeg'
 import Button from "react-bootstrap/Button"
 import {Link} from "react-router-dom"
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Form from './Form.js';
+
+
 
 function App() {
   return (
@@ -12,7 +17,7 @@ function App() {
           Heart Disease Predictor
         </p>
         <div className="btn-wrap">
-        <Button className="button" variant="primary"> Start </Button>
+        <Button className="button" variant="primary" href='Form'> Start </Button>
         </div>
       </header>
     </div>
