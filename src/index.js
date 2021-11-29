@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Form from './Form'
+import Login from './Login'
+import Registration from './Registration'
+import Tips from './Tips';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
 
@@ -19,6 +22,9 @@ ReactDOM.render(
     {/* <Route path="/" component={App} exact={true} /> */}
     <Route path="/" element={<App />} />
     <Route path="/form" element={<Form />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/registration" element={<Registration />} />
+    <Route path="/tips" element={<Tips />} />
     </Routes>
     {/* <App /> */}
     

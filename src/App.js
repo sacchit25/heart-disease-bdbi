@@ -8,6 +8,7 @@ import Form from './Form.js';
 
 
 
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,9 @@ function App() {
         </p>
         <div className="btn-wrap">
         <Button className="button" variant="primary" href='Form'> Start </Button>
+        <Button className="button" variant="primary" href='Login'> Login </Button>
+        <Button className="button" variant="primary" href='Registration'> Registration </Button>
+        <Button className="button" variant="primary" href='Tips'> Tips </Button>
         </div>
       </header>
     </div>
