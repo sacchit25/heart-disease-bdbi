@@ -14,13 +14,19 @@ function App() {
     <div className="App">
       <header className="App-header">
       <img src={background} className="img-bg" alt="logo" />
-        <p className="text">          
+        <p className="text" >          
           Heart Disease Predictor
         </p>
         <div className="btn-wrap">
         <Button className="button" variant="primary" href='Form'> Start </Button>
+        &nbsp;
+        &nbsp;
         <Button className="button" variant="primary" href='Login'> Login </Button>
+        &nbsp;
+        &nbsp;
         <Button className="button" variant="primary" href='Registration'> Registration </Button>
+        &nbsp;
+        &nbsp;
         <Button className="button" variant="primary" href='Tips'> Tips </Button>
         </div>
       </header>

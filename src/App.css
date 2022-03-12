@@ -27,6 +27,11 @@
 .App-link {
   color: #61dafb;
 }
+.divider{
+  width:20px;
+  height:auto;
+  display:inline-block;
+}
 
 .bg {
   /* The image used */
