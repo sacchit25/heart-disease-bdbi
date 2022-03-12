@@ -21,10 +21,13 @@ function App() {
         <Button className="button" variant="primary" href='Form'> Start </Button>
         &nbsp;
         &nbsp;
+        &nbsp;
         <Button className="button" variant="primary" href='Login'> Login </Button>
         &nbsp;
         &nbsp;
+        &nbsp;
         <Button className="button" variant="primary" href='Registration'> Registration </Button>
+        &nbsp;
         &nbsp;
         &nbsp;
         <Button className="button" variant="primary" href='Tips'> Tips </Button>
