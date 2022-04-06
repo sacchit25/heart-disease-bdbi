@@ -1,159 +1,239 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import form from "react-bootstrap/Form";
+import axios from 'axios'
 
 import "./Form.css";
 import { Col, FormGroup } from "react-bootstrap";
 
-function Form() {
-  const [Age, setAge] = useState("");
-  const [Sex, setSex] = useState("");
-  const [CP, setCP] = useState("");
-  const [TrestBps, setTrestBps] = useState("");
-  const [Cholesterol, setCholesterol] = useState("");
-  const [FBS, setFbs] = useState("");
-  const [restecg, setRestEcg] = useState("");
-  const [thalach, setThalach] = useState("");
-  const [exang, setExang] = useState("");
-  const [oldPeak, setOldPeak] = useState("");
-  const [slope, setSlope] = useState("");
-  const [ca, setCa] = useState("");
-  const [thal, setThal] = useState("");
+class Form extends React.Component {
+  
+  // const [slope, setSlope] = useState("");
+  // const [ca, setCa] = useState("");
+  // const [thal, setThal] = useState("");
 
-  return (
-    <div className="background">
-      <div className="Form">
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            Age
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+  constructor(props) {
+    super(props);
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-          <form.Label column sm="2">
-            Sex
-          </form.Label>
-          <form.Check
-            type="radio"
-            label="Male"
-            name="formHoriRadios"
-          />
-          <form.Check
-            type="radio"
-            label="Female"
-            name="formHoriRadios"
-          />
-        </form.Group>
+    this.state = {
+      isLoading: false,
+      formData: {
+        Age: 4,
+        Sex: "Male",
+        CP: 1,
+        TrestBps: 0,
+        Cholesterol: 0,
+        FBS: 0,
+        restecg: 0,
+        thalach: 0,
+        exang: 0,
+        oldPeak: 0
+      },
+      result: ""
+    };
+  }
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            cp
-          </form.Label>
-          <Col sm="10">
-            <form.Control type="text" />
-          </Col>
-        </form.Group>
+  handleChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    var formData = this.state.formData;
+    formData[name] = value;
+    this.setState({
+      formData
+    });
+  }
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            trestbps
-          </form.Label>
-          <Col sm="10">
-            <form.Control type="text" />
-          </Col>
-        </form.Group>
+  handlePredictClick = (event) => {
+    const formData = this.state.formData;
+    this.setState({ isLoading: true });
+    fetch('http://127.0.0.1:5000/prediction', 
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(formData)
+      })
+      .then(response => response.json())
+      .then(response => {
+        this.setState({
+          result: response.result,
+          isLoading: false
+        });
+      });
+  }
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            chol
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+  // const [Age, setAge] = useState("");
+  // const [Sex, setSex] = useState("");
+  // const [CP, setCP] = useState("");
+  // const [TrestBps, setTrestBps] = useState("");
+  // const [Cholesterol, setCholesterol] = useState("");
+  // const [FBS, setFbs] = useState("");
+  // const [restecg, setRestEcg] = useState("");
+  // const [thalach, setThalach] = useState("");
+  // const [exang, setExang] = useState("");
+  // const [oldPeak, setOldPeak] = useState("");
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            fbs
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            restecg
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+  render() {
+    const isLoading = this.state.isLoading;
+    const formData = this.state.formData;
+    const result = this.state.result;
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            thalach
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+    return (
+      <div className="background">
+        <div className="Form">
+        <form>
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              Age
+            </form.Label>
+            <Col sm="10">
+              <form.Control type="text" />
+            </Col>
+            {/* <Form.Control>
+              {sepalLengths}
+                </Form.Control> */}
+          </form.Group>
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            exang
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextPassword" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              Sex
+            </form.Label>
+            <form.Check
+              type="radio"
+              label="Male"
+              name="formHoriRadios"
+            />
+            <form.Check
+              type="radio"
+              label="Female"
+              name="formHoriRadios"
+            />
+          </form.Group>
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            old peak
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              cp
+            </form.Label>
+            <Col sm="10">
+              <form.Control type="text" />
+            </Col>
+          </form.Group>
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            slope
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              trestbps
+            </form.Label>
+            <Col sm="10">
+              <form.Control type="text" />
+            </Col>
+          </form.Group>
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            ca
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              chol
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group>
 
-        <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-          <form.Label column sm="2">
-            thal
-          </form.Label>
-          <Col sm="10">
-            <form.Control />
-          </Col>
-        </form.Group>
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              fbs
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group>
 
-        <Button className="button" variant="primary">
-          {" "}
-          Submit{" "}
-        </Button>
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              restecg
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group>
+
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              thalach
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group>
+
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              exang
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group>
+
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              old peak
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group>
+          
+        
+            
+
+          {/* <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={(e) => setSlope(e.target.value)}>
+            <form.Label column sm="2">
+              slope
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group>
+
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" setCa>
+            <form.Label column sm="2">
+              ca
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group>
+
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={(e) => setThal(e.target.value)}>
+            <form.Label column sm="2">
+              thal
+            </form.Label>
+            <Col sm="10">
+              <form.Control />
+            </Col>
+          </form.Group> */}
+
+          <Button
+                  block
+                  variant="success"
+                  disabled={isLoading}
+                  onClick={!isLoading ? this.handlePredictClick : null}>
+                  { isLoading ? 'Making prediction' : 'Predict' }
+          </Button>
+          </form>
+          {result === "" ? null :
+              (<Row>
+                <Col className="result-container">
+                  <h5 id="result">{result}</h5>
+                </Col>
+              </Row>)
+            }
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 export default Form;
