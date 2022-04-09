@@ -75,7 +75,7 @@ class MainClass(Resource):
       formData = request.json
       data = [val for val in formData.values()]
       prediction = classifier.predict(np.array(data).reshape(1, -1))
-      risks = { 0: "Not at risk", 1: "At risk"}
+      risks = { 0: "Not at risk", 1: " At risk"}
       response = jsonify({
               "statusCode": 200,
               "status": "Prediction made",

@@ -19,16 +19,16 @@ class Form extends React.Component {
     this.state = {
       isLoading: false,
       formData: {
-        Age: 4,
-        Sex: "Male",
-        CP: 1,
-        TrestBps: 0,
-        Cholesterol: 0,
-        FBS: 0,
-        restecg: 0,
-        thalach: 0,
-        exang: 0,
-        oldPeak: 0
+        "age": 0,
+        "sex": 0,
+        "cp": 0,
+        "trestbps": 0,
+        "cholestrol": 0,
+        "fbs": 0,
+        "restecg": 0,
+        "thalach": 0,
+        "exang": 0,
+        "oldpeak": 0
       },
       result: ""
     };
@@ -47,7 +47,7 @@ class Form extends React.Component {
   handlePredictClick = (event) => {
     const formData = this.state.formData;
     this.setState({ isLoading: true });
-    fetch('http://127.0.0.1:5000/prediction', 
+    fetch('http://127.0.0.1:5000/prediction/', 
       {
         headers: {
           'Accept': 'application/json',
@@ -91,11 +91,8 @@ class Form extends React.Component {
               Age
             </form.Label>
             <Col sm="10">
-              <form.Control type="text" />
+              <form.Control name="age" type="text" />
             </Col>
-            {/* <Form.Control>
-              {sepalLengths}
-                </Form.Control> */}
           </form.Group>
 
           <form.Group as={Row} className="mb-3" controlId="formPlaintextPassword" onChange={this.handleChange}>
@@ -104,12 +101,12 @@ class Form extends React.Component {
             </form.Label>
             <form.Check
               type="radio"
-              label="Male"
+              label="1"
               name="formHoriRadios"
             />
             <form.Check
               type="radio"
-              label="Female"
+              label="0"
               name="formHoriRadios"
             />
           </form.Group>
@@ -119,7 +116,7 @@ class Form extends React.Component {
               cp
             </form.Label>
             <Col sm="10">
-              <form.Control type="text" />
+              <form.Control name="cp" type="text" />
             </Col>
           </form.Group>
 
@@ -128,7 +125,7 @@ class Form extends React.Component {
               trestbps
             </form.Label>
             <Col sm="10">
-              <form.Control type="text" />
+              <form.Control name="trestbps" type="text" />
             </Col>
           </form.Group>
 
@@ -137,7 +134,7 @@ class Form extends React.Component {
               chol
             </form.Label>
             <Col sm="10">
-              <form.Control />
+              <form.Control name="cholestrol" />
             </Col>
           </form.Group>
 
@@ -146,7 +143,7 @@ class Form extends React.Component {
               fbs
             </form.Label>
             <Col sm="10">
-              <form.Control />
+              <form.Control name="fbs" />
             </Col>
           </form.Group>
 
@@ -155,7 +152,7 @@ class Form extends React.Component {
               restecg
             </form.Label>
             <Col sm="10">
-              <form.Control />
+              <form.Control name="restecg" />
             </Col>
           </form.Group>
 
@@ -164,7 +161,7 @@ class Form extends React.Component {
               thalach
             </form.Label>
             <Col sm="10">
-              <form.Control />
+              <form.Control name="thalach" />
             </Col>
           </form.Group>
 
@@ -173,7 +170,7 @@ class Form extends React.Component {
               exang
             </form.Label>
             <Col sm="10">
-              <form.Control />
+              <form.Control name="exang" />
             </Col>
           </form.Group>
 
@@ -182,7 +179,7 @@ class Form extends React.Component {
               old peak
             </form.Label>
             <Col sm="10">
-              <form.Control />
+              <form.Control name="oldpeak"/>
             </Col>
           </form.Group>
           
