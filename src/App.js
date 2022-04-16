@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       <img src={background} className="img-bg" alt="logo" />
-        <p className="text" >          
+        <p className="text" >           
           Heart Disease <br></br>Predictor
         </p>
         <p1 className="subheading" >          
