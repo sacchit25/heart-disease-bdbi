@@ -46,6 +46,7 @@ class Form extends React.Component {
 
   handlePredictClick = (event) => {
     const formData = this.state.formData;
+    console.log(formData);
     this.setState({ isLoading: true });
     fetch('http://127.0.0.1:5000/prediction/', 
       {
@@ -95,7 +96,7 @@ class Form extends React.Component {
             </Col>
           </form.Group>
 
-          <form.Group as={Row} className="mb-3" controlId="formPlaintextPassword" onChange={this.handleChange}>
+          {/* <form.Group as={Row} className="mb-3" controlId="formPlaintextPassword" onChange={this.handleChange}>
             <form.Label column sm="2">
               Sex
             </form.Label>
@@ -109,6 +110,15 @@ class Form extends React.Component {
               label="0"
               name="formHoriRadios"
             />
+          </form.Group> */}
+
+          <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
+            <form.Label column sm="2">
+              sex
+            </form.Label>
+            <Col sm="10">
+              <form.Control name="sex" type="text" />
+            </Col>
           </form.Group>
 
           <form.Group as={Row} className="mb-3" controlId="formPlaintextEmail" onChange={this.handleChange}>
